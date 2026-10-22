@@ -16,4 +16,4 @@ jobs:
         run: |
           curl -sS -f -X POST "$DISCORD_WEBHOOK_URL" \
             -H "Content-Type: application/json" \
-            -d '{"content": "It is Wednesday 8:00 PM!"}'
+            -d '{"content": "<@945475080920641596> MainteFUCKYOUnance"}'
