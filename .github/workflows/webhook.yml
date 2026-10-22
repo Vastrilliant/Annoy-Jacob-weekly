@@ -1,0 +1,19 @@
+name: Discord Weekly Webhook
+
+on:
+  schedule:
+    # Wednesday 8:00 PM UTC-5 = Thursday 01:00 UTC
+    - cron: "0 1 * * 4"
+  workflow_dispatch: 
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Discord webhook
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          curl -sS -f -X POST "$DISCORD_WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            -d '{"content": "It is Wednesday 8:00 PM!"}'
